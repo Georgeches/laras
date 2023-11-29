@@ -1,0 +1,33 @@
+.allproducts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.allproducts .card-body{
+    height: 400px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.allproducts .card-body img{
+    height: 70%;
+    margin-top: 20px;
+    mix-blend-mode:multiply;
+}
+
+@media only screen and (max-width: 600px){
+    .allproducts{
+        justify-content: space-between;
+    }
+    .allproducts .card-body img{
+        width: 60%;
+        height: auto;
+        margin-top: 20px;
+        mix-blend-mode:multiply;
+    }
+    .allproducts .card .card-body{
+        background-color: transparent;
+    }
+}
