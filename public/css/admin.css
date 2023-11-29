@@ -1,0 +1,21 @@
+.admin-body{
+    position: relative;
+    top: 50px;
+}
+
+.admin-flex-left{
+    width: 20%;
+}
+
+.admin-flex-right{
+    width: 80%;
+}
+
+.admin-flex-right{
+    height: 70vh;
+    overflow: scroll;
+}
+
+.collection{
+    height: 45px;
+}

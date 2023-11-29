@@ -1,14 +1,22 @@
-.allproducts{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 100px;
+.filter-section{
+    width: 15%;
+    margin-top: 5vh;
+}
+
+.filter-category{
+    margin-bottom: 13px;
+    font-weight: 500;
 }
 
 .allproducts .card-body{
     height: 400px;
     text-align: center;
     cursor: pointer;
+}
+
+.products-page{
+    position: relative;
+    top: 100px;
 }
 
 .allproducts .card-body img{
