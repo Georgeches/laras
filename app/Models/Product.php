@@ -9,6 +9,8 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'model', 'brand', 'price', 'image', 'description', 'category', 'color'];
+
     public function scopeFilter($query, $filters){
         //search, sort, category, maxprice, minprice
         if(isset($filters['search'])){

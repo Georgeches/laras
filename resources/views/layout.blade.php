@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('css/cartOffcanvas.css') }}">
     <link rel="stylesheet" href="{{ asset('css/productDetail.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/xform.css') }}">
     
     <title>Laras</title>
   </head>
