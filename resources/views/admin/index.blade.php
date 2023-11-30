@@ -18,14 +18,19 @@
                 <h2 class="text-danger">Collections</h2>
                 <ul class="collections">
                     <li class="collection collection-one d-flex align-items-center">
-                        <a href="/adminpage?collection=products" class="btn btn-link text-dark text-decoration-none d-flex align-items-center"><p class="lead me-5 mb-0">Products</p></a>
-                        <a href="/adminpage/products/create" class="create"><i class="bi bi-plus"></i></a>
+                        <a href="/adminpage?collection=products" class=" btn btn-link text-dark text-decoration-none d-flex align-items-center w-75"><p class="lead mb-0">Products</p></a>
+                        <a href="/adminpage/products/create" class="create "><i class="bi bi-plus"></i></a>
                     </li>
-                    <li class="collection">
-                        <a href="/adminpage?collection=users" class="btn btn-link text-dark text-decoration-none"><p class="lead">Users</p></a>
+                    <li class="collection collection-one d-flex align-items-center ">
+                        <a href="/adminpage?collection=users" class="btn btn-link text-dark text-decoration-none h-100 w-75 text-start"><p class="lead">Admins</p></a>
+                        <a href="/adminpage/registeradmin" class="create"><i class="bi bi-plus"></i></a>
                     </li>
                     <li class="collection">
                         <a href="/adminpage?collection=orders" class="btn btn-link text-dark text-decoration-none"><p class="lead">Orders</p></a>
+                    </li>
+                    <li class="collection collection-one d-flex align-items-center">
+                        <a href="/adminpage?collection=customers" class="btn btn-link text-dark text-decoration-none h-100 w-75 text-start"><p class="lead">Past Customers</p></a>
+                        <a href="#" class="create "><i class="bi bi-plus"></i></a>
                     </li>
                 </ul>
             </div>
@@ -82,17 +87,29 @@
                 @endif
 
                 @if ($request == 'users')
-                    <table class="table table-striped">
+                    <table class="table table-striped w-50">
                         <thead class="table-danger">
                             <tr>
-                                <th scope="col">Name</th>
+                                <th scope="col">Username</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Phone</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($collection as $user)
                                 <tr>
+                                    <td>{{$user['name']}}</td>
+                                    <td>{{$user['email']}}</td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <form action="/users/{{$user->id}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="btn btn-link text-danger"><i class="bi bi-trash-fill"></i></button>
+                                            </form>
+                                            <a href="/adminpage/admins/edit/{{$user->id}}" class="btn btn-link text-warning"><i class="bi bi-pencil-fill"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

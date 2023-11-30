@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,7 @@ Route::delete('/products/{id}', [ProductController::class, 'destroy']);
 
 //Admin
 Route::get('/adminpage', [AdminController::class, 'index']);
+Route::get('/adminpage/registeradmin', [UserController::class, 'create']);
+Route::post('/users', [UserController::class, 'store']);
+Route::get('/admin/login', [UserController::class, 'login']);
+Route::post('/admin/authenticate', [UserController::class, 'authenticate']);
