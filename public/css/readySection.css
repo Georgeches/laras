@@ -1,4 +1,4 @@
-.ready-row .card-body{
+.card-body{
     height: 450px;
     text-align: center;
     cursor: pointer;
@@ -12,6 +12,7 @@
 
 .product-details{
     width: 85%;
+    margin-top: -50px;
 }
 
 .product-details i{

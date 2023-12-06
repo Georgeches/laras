@@ -12,7 +12,7 @@
             </li>
             @foreach ($categories as $category)
                 <li class="filter-category">
-                    <a href="?category={{$category}}" class="filter-category-link">{{$category}}</a>
+                    <a href="?category={{$category->id}}" class="filter-category-link">{{$category->name}}</a>
                 </li>
             @endforeach
         </ul>
@@ -50,11 +50,11 @@
         </ul>
     </div>
     <div class="container w-75 allproducts">
-        <form action="" class="w-100 d-flex justify-content-center">
+        <form action="" class="w-100 d-flex justify-content-center mb-5">
             <input type="text" placeholder="Search..." class="form-control w-50 ps-3" name="search" id="search">
             <input type="submit" name="submit-search" class="form-control btn btn-outline-dark ms-2" style="width: 10%;" value="search">
         </form>
-        <div class="products-list d-flex flex-wrap justify-content-center">
+        <div class="ready-row d-flex flex-wrap justify-content-center">
             @foreach ($products as $product)
                 <x-product :product="$product"/>
             @endforeach

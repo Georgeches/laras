@@ -4,12 +4,26 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'model', 'brand', 'price', 'image', 'description', 'category', 'color'];
+    protected $fillable = ['name', 'model', 'brand', 'price', 'slug', 'sku', 'description', 'category_id', 'image', 'quantity'];
+
+    public function product_images(): HasMany{
+        return $this->hasMany(ProductImage::class);
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+
+    public function getCategoryNameAttribute(){
+        return $this->category->name ?? 'No category';
+    }
 
     public function scopeFilter($query, $filters){
         //search, sort, category, maxprice, minprice
@@ -20,7 +34,7 @@ class Product extends Model
                 ->orWhere('model', 'like', '%' . $filters['search'] .'%');
         }
         if(isset($filters['category'])){
-            $query->where('category', 'like', '%' . $filters['category'] . '%');
+            $query->where('category_id', 'like', '%' . $filters['category'] . '%');
         }
         if(isset($filters['sort'])){
             if($filters['sort'] == 'pricehl'){

@@ -9,9 +9,10 @@
 }
 
 .allproducts .card-body{
-    height: 400px;
+    height: 500px;
     text-align: center;
     cursor: pointer;
+    margin-bottom: 80px;
 }
 
 .products-page{
@@ -19,8 +20,14 @@
     top: 100px;
 }
 
-.allproducts .card-body img{
-    height: 70%;
+.card-body-image{
+    overflow: hidden;
+    height: 90%;
+}
+
+.card-body-image img{
+    height: 100%;
+    width: auto;
     margin-top: 20px;
     mix-blend-mode:multiply;
 }

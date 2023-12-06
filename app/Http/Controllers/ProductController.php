@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -18,14 +20,18 @@ class ProductController extends Controller
 
         return view('products.productsPage',[
             'products' => Product::latest()->filter(request(['category', 'minprice', 'maxprice', 'sort', 'search']))->get(),
-            'categories' => $categories
+            'categories' => Category::all()
         ]);
     }
 
     public function show($id){
         $product = Product::findOrFail($id);
+        $productImages = ProductImage::where('product_id', 'like', $id)->get();
+        $category = Category::where('id', 'like', $product['category_id'])->get();
         return view('products.show', [
-            'product' => $product
+            'product' => $product,
+            'product_images' => $productImages,
+            'category' => $category
         ]);
     }
 

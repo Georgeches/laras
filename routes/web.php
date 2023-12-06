@@ -22,16 +22,16 @@ use App\Http\Controllers\UserController;
 //Products routes
 Route::get('/', [ProductController::class, 'index']);
 Route::get('/all', [ProductController::class, 'index2']);
-Route::get('/adminpage/products/create', [ProductController::class, 'create']);
-Route::get('/adminpage/products/edit/{id}', [ProductController::class, 'edit']);
+// Route::get('/adminpage/products/create', [ProductController::class, 'create']);
+// Route::get('/adminpage/products/edit/{id}', [ProductController::class, 'edit']);
 Route::get('/products/{id}', [ProductController::class, 'show']);
 Route::post('/products', [ProductController::class, 'store']);
 Route::put('/products/{id}', [ProductController::class, 'update']);
 Route::delete('/products/{id}', [ProductController::class, 'destroy']);
 
 //Admin
-Route::get('/adminpage', [AdminController::class, 'index']);
-Route::get('/adminpage/registeradmin', [UserController::class, 'create']);
-Route::post('/users', [UserController::class, 'store']);
-Route::get('/admin/login', [UserController::class, 'login']);
-Route::post('/admin/authenticate', [UserController::class, 'authenticate']);
+// Route::get('/adminpage', [AdminController::class, 'index']);
+// Route::get('/adminpage/registeradmin', [UserController::class, 'create']);
+// Route::post('/users', [UserController::class, 'store']);
+// Route::get('/admin/login', [UserController::class, 'login']);
+// Route::post('/admin/authenticate', [UserController::class, 'authenticate']);
