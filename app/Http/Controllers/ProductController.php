@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function index(){
+        $customer_id = [CustomerController::class, 'activeCustomer'];
         return view('products.index', [
             'products' => Product::latest()->filter(request(['category', 'minprice', 'maxprice', 'sort', 'search']))->get(),
         ]);

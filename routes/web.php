@@ -1,12 +1,15 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\Product;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CookieController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +31,13 @@ Route::get('/products/{id}', [ProductController::class, 'show']);
 Route::post('/products', [ProductController::class, 'store']);
 Route::put('/products/{id}', [ProductController::class, 'update']);
 Route::delete('/products/{id}', [ProductController::class, 'destroy']);
+
+//Cart
+Route::get('/cart', [CartController::class, 'index']);
+Route::get('/cart/increment/{id}', [CartController::class, 'increaseQuantity']);
+Route::get('/cart/decrement/{id}', [CartController::class, 'decreaseQuantity']);
+Route::delete('/cart/delete/{id}', [CartController::class, 'removeFromCart']);
+Route::get('/cart/add/{id}', [CartController::class, 'addToCart']);
 
 //Admin
 // Route::get('/adminpage', [AdminController::class, 'index']);

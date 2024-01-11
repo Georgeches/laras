@@ -53,7 +53,7 @@
                         <option value="{{$option['value']}}">{{$option['label']}}</option>
                     @endforeach
                 </select>
-                <button class='btn btn-dark text-center mt-3 add-cart'>ADD TO BAG</button>
+                <a href="/cart/add/{{$product->id}}" class='btn btn-dark text-center mt-3 add-cart'>ADD TO BAG</a>
             </div>
         </div>
     </div>

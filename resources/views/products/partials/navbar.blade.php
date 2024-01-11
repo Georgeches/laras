@@ -29,7 +29,7 @@
             <a class="nav-link" href="#">Contact</a>
             </li>
             <li class="nav-item">
-            <a class="cart-icon" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+            <a class="cart-icon" href="/cart">
                 <i class="bi bi-cart4"></i>
             </a>
             </li>

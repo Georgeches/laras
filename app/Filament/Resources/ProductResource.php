@@ -140,7 +140,11 @@ class ProductResource extends Resource
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('category')
-                    ->relationship('category', 'name')
+                    ->relationship('category', 'name'),
+                Tables\Filters\SelectFilter::make('price')
+                    ->options([
+                        '0 to 1000' => ''
+                    ])
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
