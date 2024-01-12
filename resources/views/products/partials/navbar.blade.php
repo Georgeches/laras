@@ -1,3 +1,11 @@
+@php
+    $cart = session()->get('cart', []);
+    $itemsCount = 0;
+    if(isset($cart)){
+        $itemsCount = count($cart);
+    }
+@endphp
+
 <nav class="navbar fixed-top navbar-expand-lg navbar-light">
     <div class="container-fluid nav-top">
         <button id="navbar-toggler" class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,8 +37,9 @@
             <a class="nav-link" href="#">Contact</a>
             </li>
             <li class="nav-item">
-            <a class="cart-icon" href="/cart">
+            <a class="cart-icon d-flex" href="/cart">
                 <i class="bi bi-cart4"></i>
+                <span class="cart-span">{{$itemsCount}}</span>
             </a>
             </li>
         </ul>

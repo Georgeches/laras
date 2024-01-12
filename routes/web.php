@@ -9,6 +9,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CookieController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 
 /*
@@ -38,6 +40,11 @@ Route::get('/cart/increment/{id}', [CartController::class, 'increaseQuantity']);
 Route::get('/cart/decrement/{id}', [CartController::class, 'decreaseQuantity']);
 Route::delete('/cart/delete/{id}', [CartController::class, 'removeFromCart']);
 Route::get('/cart/add/{id}', [CartController::class, 'addToCart']);
+
+Route::get('/customerinfo', [CustomerController::class, 'create']);
+Route::post('/customer/new', [CustomerController::class, 'new']);
+Route::get('/checkout', [OrderController::class, 'create']);
+Route::post('/order/new', [OrderController::class, 'new']);
 
 //Admin
 // Route::get('/adminpage', [AdminController::class, 'index']);

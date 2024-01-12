@@ -22,20 +22,23 @@
     <link rel="stylesheet" href="{{ asset('css/productDetail.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <link rel="stylesheet" href="{{ asset('css/xform.css') }}">
-    
+    <link rel="stylesheet" href="{{ asset('css/checkout.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/payment.css') }}">
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="{{asset('js/custom.js')}}"></script>
     <title>Laras</title>
   </head>
   <body>
     @if (session('success'))
         <div class="container d-flex justify-content-center">
-            <div class="alert alert-success" style="position: absolute; z-index: 10000000000000000;">
+            <div class="alert alert-success" style="position: relative; z-index: 10000000000000000; top: 60px;">
               {{session('success')}}
             </div>
         </div>
     @endif
     @if (session('error'))
         <div class="container d-flex justify-content-center">
-            <div class="alert alert-danger" style="position: absolute; z-index: 10000000000000000;">
+            <div class="alert alert-danger" style="position: relative; z-index: 10000000000000000; top: 60px;">
               {{session('error')}}
             </div>
         </div>

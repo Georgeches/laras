@@ -10,16 +10,10 @@ use Illuminate\Http\Request;
 class CartController extends Controller
 {
     public function index(){
-        $cart = session()->get('cart', []);
-        $total = 0;
-        $tax = 0;
-        foreach($cart as $item){
-            $total+=$item['price']*$item['amount'];
-            $tax+=0.16*$total;
-        }
+        $details = $this->getDetails();
         return view('cart.index', [
-            'total'=>$total,
-            'tax'=>$tax,
+            'total'=>$details['total'],
+            'tax'=>$details['tax'],
         ]);
     }
 
@@ -85,5 +79,19 @@ class CartController extends Controller
         else{
             return redirect()->back()->with('error', 'Could not update cart. Please try again later');
         }
+    }
+
+    public function getDetails(): array{
+        $cart = session()->get('cart', []);
+        $subtotal = 0;
+        foreach($cart as $item){
+            $subtotal+=$item['price']*$item['amount'];
+        }
+
+        return [
+            'subtotal' => $subtotal,
+            'tax' => 0.16*$subtotal,
+            'total' => $subtotal + 0.16*$subtotal
+        ];
     }
 }

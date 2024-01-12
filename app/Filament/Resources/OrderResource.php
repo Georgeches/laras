@@ -130,6 +130,11 @@ class OrderResource extends Resource
                     ->sortable()
                     ->searchable()
                     ->toggleable(),
+                Tables\Columns\TextColumn::make('amount')
+                    ->label('Amount')
+                    ->toggleable()
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('customer.phone')
                     ->label('Customer phone')
                     ->toggleable(),
@@ -141,7 +146,7 @@ class OrderResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Date')
-                    ->Date()
+                    ->dateTime()
                     ->sortable(),
             ])
             ->filters([

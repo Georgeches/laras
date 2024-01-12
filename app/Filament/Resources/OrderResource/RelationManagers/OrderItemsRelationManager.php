@@ -37,7 +37,8 @@ class OrderItemsRelationManager extends RelationManager
                                         ->afterStateUpdated(function ($state, Forms\Set $set) {
                                             $set('price', Product::find($state)->price ?? 0);
                                         }),
-                                Forms\Components\TextInput::make('price')
+                                Forms\Components\TextInput::make('price'),
+                                Forms\Components\TextInput::make('quantity')
                             ]),
                     ])
             ]);
@@ -53,6 +54,7 @@ class OrderItemsRelationManager extends RelationManager
                     ->label('Image'),
                 Tables\Columns\TextColumn::make('product.name'),
                 Tables\Columns\TextColumn::make('price'),
+                Tables\Columns\TextColumn::make('quantity'),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('product')

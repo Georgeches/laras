@@ -42,7 +42,7 @@
                 <h6>Subtotal: Ksh {{$total}}</h6>
                 <h6>Tax: Ksh {{$tax}}</h6>
                 <h6>Total: Ksh {{$total + $tax}}</h6>
-                <button class="btn btn-warning mt-2 text-white">Checkout</button>
+                <a href="/customerinfo" class="btn btn-warning mt-2 text-white">Checkout</a>
             </div>
         </div>
     </div>
